@@ -11,9 +11,11 @@ type TaskData = {
 const TodoList = () => {
     const [curTask, setCurTask] = useState<string>('')
     const [tasks, setTasks] = useState<TaskData[]>([])
+    const [input, setInput] = useState("")
     let doned: Array<TaskData>
 
     const onChangeCallback = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(ev.target.value)
         setCurTask(ev.target.value)
     }
 
@@ -33,9 +35,10 @@ const TodoList = () => {
         const newDone = false;
 
         const newTasks = [{id: newId, name: taskName, isDone: newDone}, ...tasks]
-
         setTasks(newTasks)
         }
+        setInput('')
+        setCurTask('')
     }
 
     const deleteTask = (id: number) => {
@@ -61,7 +64,7 @@ const TodoList = () => {
     return (
         <div className='mx-auto max-w-4xl'>
             <div className='flex space-x-1'>
-            <input className='border border-gray-400 w-full text-2xl' onChange={onChangeCallback} onKeyDown={onKeyDownCallback}></input>
+            <input value={input} className='border border-gray-400 w-full text-2xl' onChange={onChangeCallback} onKeyDown={onKeyDownCallback}></input>
             <button className='border border-gray-400 w-8 font-bold' onClick={() => addTask(curTask)}>+</button>
             </div>
             {undoneTaskNaja.map( x => <Task id={x.id} name={x.name} isDone={x.isDone} doneFn={doneTask} deleteFn={deleteTask}/>)}
