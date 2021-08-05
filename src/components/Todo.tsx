@@ -19,7 +19,7 @@ const TodoList = () => {
     const addTask = (taskName: string) => {
         const newId = (new Date()).getTime()
 
-        const newTasks = [...tasks, {id: newId, name: taskName}]
+        const newTasks = [{id: newId, name: taskName}, ...tasks]
 
         setTasks(newTasks)
     }
@@ -35,10 +35,11 @@ const TodoList = () => {
     }
 
     return (
-        <div style={{backgroundColor: 'yellow'}}>
-            <h3>React todo list</h3>
-            <input onChange={onChangeCallback}></input>
-            <button onClick={() => addTask(curTask)}>Add Task</button>
+        <div className='mx-auto max-w-4xl'>
+            <div className='flex space-x-1'>
+            <input className='border border-gray-400 w-full text-2xl' onChange={onChangeCallback}></input>
+            <button className='border border-gray-400 w-8 font-bold' onClick={() => addTask(curTask)}>+</button>
+            </div>
             {tasks.map( x => <Task id={x.id} name={x.name} doneFn={doneTask} deleteFn={deleteTask}/>)}
         </div>
     )
