@@ -9,7 +9,7 @@ type TaskData = {
 }
 
 const TodoList = () => {
-
+    const input = document.querySelector('input')
     const [curTask, setCurTask] = useState<string>('')
     const [tasks, setTasks] = useState<TaskData[]>([])
     let doned: Array<TaskData>
