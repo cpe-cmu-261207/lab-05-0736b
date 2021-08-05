@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
+import Todo from './components/Todo'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       {/* header section */}
       <div className='flex justify-center items-end space-x-2'>
         <span className='text-center italic my-2 text-2xl'>Minimal Todo List </span>
-        <span className='text-gray-400 italic my-2 text-xl'>by ...</span>
+        <span className='text-gray-400 italic my-2 text-xl'>by Thanawat Bumpengpun 630610736</span>
       </div>
 
       {/* todo section */}
@@ -55,7 +56,7 @@ function App() {
       </div>
 
       {/* footer section */}
-      <p className='text-center text-gray-400'> ... </p>
+      <p className='text-center text-gray-400'> Copyright (c) 2077</p>
     </div>
   );
 }
